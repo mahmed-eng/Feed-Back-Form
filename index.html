@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TALENT HUNT</title>
+	<style>
+		h1 {
+			text-align: center;
+			color: #8B0000;
+		}
+		body {
+			background-color: #FFFFFF;
+			margin: 0;
+			padding: 0;
+		}
+		#contact-form {
+			background-color: #FFFFFF;
+			max-width: 600px;
+			margin: 50px auto;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px #8B0000;
+		}
+		#contact-form label {
+			color: #8B0000;
+			display: inline-block;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+		#contact-form input[type="text"],
+		#contact-form input[type="email"],
+		#contact-form input[type="tel"],
+		#contact-form input[type="date"],
+		#contact-form textarea {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #8B0000;
+			border-radius: 5px;
+			box-sizing: border-box;
+			font-size: 16px;
+			color: #8B0000;
+		}
+		#contact-form input[type="submit"] {
+			background-color: #8B0000;
+			color: #FFFFFF;
+			border: none;
+			padding: 10px 20px;
+			border-radius: 5px;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 10px;
+		}
+		#contact-form input[type="submit"]:hover {
+			background-color: #FFFFFF;
+			color: #8B0000;
+			border: 1px solid #8B0000;
+		}
+		#contact-form textarea {
+			height: 150
+        }
+        </style>
+</head>
+<body>
+    
+    <h1>INTERNSHIP COMPLETION</h1>
+
+    <div id="contact-form">
+      <form method="post" action="mailto:talenthuntof2023@gmail.com" enctype="text/plain">
+        <label for="name">Name:</label>
+        <!-- <input type="text" id="name" name="name" value="Ahmed Hashmi" disabled> -->
+       <input type="text" id="name" name="name" oninput="validateName()" value="Muhammad Ahmed Hashmi">
+        <br><br>
+        <label for="field">Field:</label>
+        <!-- <input type="text" id="field" name="field" value="backend developer" disabled> -->
+        <input type="text" id="field" name="field" oninput="validateField()" value="backend developer">
+        <br><br>
+        <label for="address">Address:</label>
+        <!-- <input type="text" id="address" name="address" required> -->
+        <input type="text" id="address" name="address" required oninput="validateAddress()">
+        <br><br>
+        <label for="contact-number">Contact Number:</label>
+        <!-- <input type="number" id="contact-number" name="contact-number" pattern="[0-9]{10}" required> -->
+        <input type="tel" id="contact-number" name="contact-number" pattern="0[0-9]{10}" required oninput="validateContactNumber()">
+        <br><br>
+        <label for="email">Email:</label>
+        <!-- <input type="email" id="email" name="email" required> -->
+        <input type="email" id="email" name="email" required oninput="validateEmail()">
+        <br><br>
+        <label for="duration">Duration of Internship Completion(In Months):</label>
+        <!-- <input type="number" id="duration" name="duration" min="1" max="12" required> -->
+        <input type="number" id="duration" name="duration" min="3" max="6" required>
+        <br><br>
+        <label for="company">Name of Company:</label>
+        <!-- <input type="text" id="company" name="company" value="Talent Hunt" disabled> -->
+        <input type="text" id="company" name="company" required oninput="validateCompany()">
+        <br><br>
+        <label for="goals">Goals and Objectives:</label>
+        <!-- <textarea id="goals" name="goals" rows="5" required></textarea> -->
+        <!-- <textarea id="goals" name="goals" rows="5" required oninput="validateGoals()"></textarea> -->
+        <textarea id="goals" name="goals" rows="5" required pattern="^(?!.*(\b\S+\b\s*){6,})([^.]*\.\s){0,4}[^.]*\.$"></textarea>         <br><br>
+        <label for="tasks">Tasks Covered:</label>
+        <!-- <textarea id="tasks" name="tasks" rows="5" required></textarea> -->
+        <!-- <textarea id="goals" name="goals" rows="5" required oninput="validateGoals()"></textarea> -->
+        <textarea id="tasks" name="tasks" rows="5" required pattern="^(?!.*(\b\S+\b\s*){6,})([^.]*\.\s){0,4}[^.]*\.$"></textarea>        <br><br>
+        <label for="responsibilities">What do you think your responsibilities were?</label>
+        <textarea id="responsibilities" name="responsibilities" rows="5" required pattern="^(([^.]*\.[^.]*){5,})$"></textarea>
+        <!-- <textarea id="responsibilities" name="responsibilities" rows="5" required></textarea> -->
+        <br><br>
+        <label for="deadline">Ability to meet deadlines:</label>
+        <select id="deadline" name="deadline" required>
+          <option value="">--Select--</option>
+          <option value="excellent">Excellent</option>
+          <option value="good">Good</option>
+          <option value="fair">Fair</option>
+          <option value="poor">Poor</option>
+        </select>
+        <br><br>
+        <label for="communication">Communication Skill:</label>
+        <select id="communication" name="communication" required>
+          <option value="">--Select--</option>
+          <option value="excellent">Excellent</option>
+          <option value="good">Good</option>
+          <option value="fair">Fair</option>
+          <option value="poor">Poor</option>
+        </select>
+        <br><br>
+        <label for="independency">Independency Level:</label>
+        <select id="independency" name="independency" required>
+          <option value="">--Select--</option>
+          <option value="excellent">Excellent</option>
+          <option value="good">Good</option>
+          <option value="fair">Fair</option>
+          <option value="poor">Poor</option>
+        </select>
+        <br><br>
+        <label for="assigned-to">Whom you were assigned to and how he/she was?</label>
+        <!-- <input type="text" id="assigned-to" maxlength="30" name="assigned-to" required> -->
+        <textarea id="assigned-to" name="assigned-to" rows="5" required pattern="^(\s*\S.*){3,}$"></textarea>        <input type="submit" value="Submit">
+        </form>
+    <script>
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=- Validations -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+      // Name validation
+      function validateName() {
+  const nameInput = document.getElementById("name");
+  const regex = /^muhammad ahmed hashmi$/i;
+  const isValid = regex.test(nameInput.value.trim());
+  nameInput.setCustomValidity(isValid ? "" : "Please enter your name as Muhammad Ahmed Hashmi.");
+} 
+
+// Field validation
+function validateField() {
+  const fieldInput = document.getElementById("field");
+  const regex = /^backend\s*developer$/i;
+  const isValid = regex.test(fieldInput.value.trim());
+  fieldInput.setCustomValidity(isValid ? "" : "Please enter 'Backend Developer' with or without spaces.");
+}
+// Address Validation
+function validateAddress() {
+  const addressInput = document.getElementById("address");
+  const regex = /^[a-zA-Z0-9\s,:-]+$/;
+  const isValid = regex.test(addressInput.value.trim());
+  addressInput.setCustomValidity(isValid ? "" : "Please enter a valid address.");
+}
+// Contact Validation
+function validateContactNumber() {
+  const contactNumberInput = document.getElementById("contact-number");
+  const regex = /^0[0-9]{10}$/;
+  const isValid = regex.test(contactNumberInput.value.trim());
+  contactNumberInput.setCustomValidity(isValid ? "" : "Please enter a valid contact number.");
+}
+// Email Validation
+// function validateEmail() {
+//   const emailInput = document.getElementById("email");
+//   const regex = /^[\w-\.]+@([\w-]+\.)+gmail\.com$/i;
+//   const isValid = regex.test(emailInput.value.trim());
+//   emailInput.setCustomValidity(isValid ? "" : "Please enter a valid Gmail email address.");
+// }
+
+// Duration Validation
+// Name of Company Validation
+function validateCompany() {
+  const companyInput = document.getElementById("company");
+  const regex = /^talent\s?hunt$/i;
+  const isValid = regex.test(companyInput.value.trim());
+  companyInput.setCustomValidity(isValid ? "" : "Please enter 'Talent Hunt' (with or without a space) as the company name.");
+}
+// Goals And Objectives Validation
+let previousSentences = [];
+
+function validateGoals() {
+  const goalsInput = document.getElementById("goals");
+  const regex = /^([A-Z][^.!?]*[.!?])(\s+[A-Z][^.!?]*[.!?]){4,}$/;
+  const isValid = regex.test(goalsInput.value.trim());
+
+  if (isValid) {
+    const sentences = goalsInput.value.trim().split(/[.!?]+\s*/);
+    const hasDuplicate = sentences.some((sentence) => previousSentences.includes(sentence));
+
+    if (hasDuplicate) {
+      goalsInput.setCustomValidity("Please ensure that each sentence is unique.");
+      return;
+    }
+
+    previousSentences = [...previousSentences, ...sentences];
+    goalsInput.setCustomValidity("");
+  } else {
+    goalsInput.setCustomValidity("Please enter at least five sentences, each ending with a full stop.");
+  }
+}
+// Tasks Validation
+function validateGoals() {
+  const goalsInput = document.getElementById("goals");
+  const regex = /^([A-Z][^.!?]*[.!?])(\s+[A-Z][^.!?]*[.!?]){4,}$/;
+  const isValid = regex.test(goalsInput.value.trim());
+  goalsInput.setCustomValidity(isValid ? "" : "Please enter at least five sentences, each ending with a full stop.");
+}
+
+// Feedback Validation
+
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=        Ends Here        -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  </script>
+</body>
+</html>
