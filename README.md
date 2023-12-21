@@ -1,4 +1,4 @@
-# Responsive-Form
+# Feed-Back-Form
 Responsive Feedback Form
 This feedback form is designed to be responsive and optimized for use on different devices and screen sizes. It can be easily integrated into any website or web application to gather feedback from users.
 
